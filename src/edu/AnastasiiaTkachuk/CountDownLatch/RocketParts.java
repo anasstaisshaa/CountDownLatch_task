@@ -1,4 +1,4 @@
-package edu.AnastasiiaTkachuk.latch;
+package edu.AnastasiiaTkachuk.CountDownLatch;
 
 public enum RocketParts {
     PART1,

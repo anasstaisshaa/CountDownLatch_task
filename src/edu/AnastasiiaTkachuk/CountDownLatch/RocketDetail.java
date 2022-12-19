@@ -1,4 +1,4 @@
-package edu.AnastasiiaTkachuk.latch;
+package edu.AnastasiiaTkachuk.CountDownLatch;
 
 import java.util.concurrent.CountDownLatch;
 
