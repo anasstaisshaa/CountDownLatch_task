@@ -6,15 +6,15 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class LatchDemo {
+public class Runner {
     public static void main(String[] args) throws InterruptedException {
-        CountDownLatch countDownLatch = new CountDownLatch(RocketDetail.values().length);
+        CountDownLatch countDownLatch = new CountDownLatch(RocketParts.values().length);
         ExecutorService executorService = Executors.newFixedThreadPool(3);
 
         executorService.submit(new Rocket(countDownLatch));
 
-        Arrays.stream(RocketDetail.values())
-                .map(detail -> new RocketDetailRunnable(detail, countDownLatch))
+        Arrays.stream(RocketParts.values())
+                .map(detail -> new RocketDetail(detail, countDownLatch))
                 .forEach(executorService::submit);
         executorService.shutdown();
         executorService.awaitTermination(1L, TimeUnit.MINUTES);
